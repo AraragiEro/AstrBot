@@ -13,8 +13,6 @@ from astrbot import logger
 
 from anthropic import Anthropic
 
-from ... import logger
-
 @dataclass
 class FuncTool:
     """
@@ -190,7 +188,6 @@ class FuncCall:
                 }
             )
 
-        loop = asyncio.get_event_loop()
         for name, client in self.mcp_client_dict.items():
             responses = await client.session.list_tools()
             for tool in responses.tools:
